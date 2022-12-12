@@ -41,7 +41,13 @@ bool Process::is_valid_page(size_t index) const
 
 size_t Process::get_rss() const
 {
-    return pages.size()/8;
+    int total = 0;
+    for (int i = 0; i < page_table.rows.size(); i++) {
+        if (page_table.rows[i].present) {
+            total += 1;
+        }
+    }
+    return total;
 }
 
 

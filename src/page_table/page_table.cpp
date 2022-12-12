@@ -5,7 +5,7 @@
  */
 
 #include "page_table/page_table.h"
-
+#include <iostream>
 using namespace std;
 
 
@@ -24,13 +24,16 @@ size_t PageTable::get_oldest_page() const {
     int max = 0;
     int i = 0;
     bool pres = false;
+    // std::cout << "Get Oldest Page" << std::endl;
     for (Row row : rows) {
-        if (row.loaded_at < time && row.present) {
+        // std::cout << row.loaded_at << std::endl;
+        if (row.loaded_at < time && row.present && row.loaded_at != -1) {
             time = row.loaded_at;
             max = i;
         }
         i++;
     }
+    // std::cout << "Done Get Oldest Page" << std::endl;
     return max;
 }
 

@@ -19,6 +19,8 @@ public:
     */
     void set_page(Process* process, size_t page_number);
 
+    //Frame::Frame();
+
 // CLASS INSTANCE VARIABLES
 public:
 
@@ -33,7 +35,7 @@ public:
     * The page number this frame holds (pretend that this is stored in some OS
     * data structure).
     */
-    size_t page_number;
+    size_t page_number = -1;
 
     /**
     * The process corresponding to the page this frame holds (pretend that this
